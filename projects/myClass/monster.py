@@ -1,4 +1,3 @@
-from typing import Sequence
 from head import Head
 
 
@@ -14,7 +13,3 @@ class monster:
         self._legs = legs
         self._heads = heads
         self._dead : bool = False
-
-    
-
-    

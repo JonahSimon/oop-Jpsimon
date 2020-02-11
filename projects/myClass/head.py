@@ -4,8 +4,6 @@ class Head:
 
     def __init__(self, heads : int = NUMBER_OF_HEADS, hp : int = HIT_POINTS):
         self._heads = heads
-        self._dead : bool = False
-
-    
-
-    
+        self._crippled : bool = False
+        self._hitpoints = hp
+ 
