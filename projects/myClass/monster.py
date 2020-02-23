@@ -13,4 +13,32 @@ class Monster:
         self._legs = legs
         self._heads = heads
         self._dead : bool = False
+        self._health = hp
         self._color : str = color
+
+    @property
+    def NumArms(self) -> int:
+        return self._arms
+
+    @property
+    def NumLegs(self) -> int:
+        return self._legs
+
+    @property
+    def NumHeads(self) -> int:
+        return self._heads
+
+    @property
+    def HP(self) -> int:
+        return self._health
+
+    @property
+    def Dead(self) -> bool:
+        return self._dead
+
+    @HP.setter
+    def hp(self,value : int) -> None:
+        if value <=0:
+            self._dead = True
+        if self._dead: 
+            self._health = 0
