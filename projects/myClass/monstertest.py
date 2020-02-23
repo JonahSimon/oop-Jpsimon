@@ -13,47 +13,23 @@ class monsterTest(unittest.TestCase):
         self.assertEqual(monster._color, Monster.COLOR)
         self.assertEqual(monster._dead, Monster.DEAD)
 
-
-    def testNegativePressure(self):
-        testDiameter : float = 22.0
-        testPressure : float = -1
-        self.assertRaises(ValueError, lambda : Wheel(diameter = testDiameter, pressure = testPressure))
-
-
     def testSpecific(self):
-        testDiameter : float = 22.0
-        testPressure : float = Wheel.BURST_PRESSURE/2.0
-        wheel = Wheel(diameter = testDiameter, pressure = testPressure)
-        self.assertEqual(wheel.pressure, testPressure)
-        self.assertEqual(wheel.diameter, testDiameter)
-        self.assertEqual(wheel.burst,False)
-        self.assertEqual(wheel.flat,False)
+        testHeads : int = 3
+        testHp : int = 25
+        monster = Monster(heads = testHeads, hp = testHp)
+        self.assertEqual(monster.NumHeads, testHeads)
+        self.assertEqual(monster.HP, testHp)
+        self.assertEqual(monster.Dead,False)
 
-
-    def testFlat(self):
-        testPressure = Wheel.BURST_PRESSURE / 2.0
-        wheel = Wheel()
-        wheel.pressure = testPressure
-        self.assertEqual(wheel.pressure, testPressure)
-        self.assertEqual(wheel.flat, False)
-        wheel.pressure = 0.0
-        self.assertEqual(wheel.flat, True)
-
-
-    def testBurst(self):
-        wheel = Wheel()
-        wheel.pressure = Wheel.BURST_PRESSURE / 2.0
-        self.assertEqual(wheel.flat,False)
-        self.assertEqual(wheel.burst,False)
-        wheel.pressure = Wheel.BURST_PRESSURE
-        self.assertEqual(wheel.pressure,0.0)
-        self.assertEqual(wheel.flat,True)
-        self.assertEqual(wheel.burst,True)
-        wheel.pressure = Wheel.BURST_PRESSURE / 2.0
-        self.assertEqual(wheel.pressure,0.0)
-        self.assertEqual(wheel.flat,True)
-        self.assertEqual(wheel.burst,True)
-
+    def testDead(self):
+        monster = Monster()
+        self.assertEqual(monster.Dead,False)
+        monster.hp = 0
+        self.assertEqual(monster.HP,0)
+        self.assertEqual(monster.Dead,True)
+        monster.hp = 1000
+        self.assertEqual(monster.HP,0)
+        self.assertEqual(monster.Dead,True)
 
 if __name__ == '__main__':
     unittest.main()

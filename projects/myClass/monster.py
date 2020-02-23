@@ -13,7 +13,7 @@ class Monster:
         self._arms = arms
         self._legs = legs
         self._heads = heads
-        self._dead : bool = dead
+        self._dead = dead
         self._health = hp
         self._color : str = color
 
@@ -43,3 +43,5 @@ class Monster:
             self._dead = True
         if self._dead: 
             self._health = 0
+        else:
+            self._health = value

@@ -1,10 +1,11 @@
 class Head:
     NUMBER_OF_HEADS : int = 1
     HIT_POINTS : int = 15
+    CRIPPLED : bool = False
 
-    def __init__(self, heads : int = NUMBER_OF_HEADS, hp : int = HIT_POINTS):
+    def __init__(self, heads : int = NUMBER_OF_HEADS, hp : int = HIT_POINTS, crippled : bool = CRIPPLED):
         self._heads = heads
-        self._crippled : bool = False
+        self._crippled = crippled
         self._hitpoints = hp
 
     @property
@@ -16,12 +17,14 @@ class Head:
         return self._crippled
     
     @property
-    def hp(self) -> int:
+    def HP(self) -> int:
         return self._hitpoints
 
-    @hp.setter
-    def pressure(self,value : int) -> None:
-        if value <= 0:
+    @HP.setter
+    def hp(self,value : int) -> None:
+        if value <=0:
             self._crippled = True
-        self._hitpoints = value
- 
+        if self._crippled: 
+            self._hitpoints = 0
+        else:
+            self._health = value
