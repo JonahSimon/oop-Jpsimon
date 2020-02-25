@@ -2,7 +2,7 @@
 
 #include <vector>
 #include <memory>
-#include <Head.h>
+#include "Head.h"
 
 namespace go{
 
@@ -20,8 +20,11 @@ namespace go{
         public: void setColor(const std::string &value);
 
         public: Head& getHead(int value);
+        public: const Head& getHead(int value) const;
 
         public: bool isDead() const;
+
+        public: bool isCrippled(int value) const;
 
     
     };
