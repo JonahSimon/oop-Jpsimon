@@ -6,7 +6,7 @@ namespace go {
 
     class Head {
         public: static const int DEFAULT_HIT_POINTS;
-        public: static const int DEFAULT_CRIPPLED; 
+        public: static const bool DEFAULT_CRIPPLED; 
         private: int hp;
         private: bool CRIPPLED;
         
