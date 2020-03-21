@@ -1,19 +1,19 @@
+from character import Character
 from head import Head
 
-class Monster:
+class Monster(Character):
     NUMBER_OF_ARMS : int = 2
     NUMBER_OF_LEGS : int = 2
     NUMBER_OF_HEADS : int = 1
     COLOR : str = "unknown"
     HIT_POINTS : int = 50
-    DEAD : bool = False
 
     def __init__(self, arms : int = NUMBER_OF_ARMS, legs : int = NUMBER_OF_LEGS, \
-        heads : int = NUMBER_OF_HEADS, hp : int = HIT_POINTS, color : str = COLOR, dead : bool = DEAD):
+        heads : int = NUMBER_OF_HEADS, hp : int = HIT_POINTS, color : str = COLOR):
+        super (Monster,self).__init__(dead = False)
         self._arms = arms
         self._legs = legs
         self._heads = heads
-        self._dead = dead
         self._health = hp
         self._color : str = color
 
@@ -32,10 +32,6 @@ class Monster:
     @property
     def HP(self) -> int:
         return self._health
-
-    @property
-    def Dead(self) -> bool:
-        return self._dead
 
     @HP.setter
     def hp(self,value : int) -> None:

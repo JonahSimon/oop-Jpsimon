@@ -1,19 +1,19 @@
+from character import Character
 from head import Head
 
-class Hero:
+class Hero(Character):
     NUMBER_OF_ARMS : int = 2
     NUMBER_OF_LEGS : int = 2
     NUMBER_OF_HEADS : int = 1
     COLOR : str = "unknown"
     HIT_POINTS : int = 50
-    DEAD : bool = False
 
     def __init__(self, arms : int = NUMBER_OF_ARMS, legs : int = NUMBER_OF_LEGS, \
-        heads : int = NUMBER_OF_HEADS, hp : int = HIT_POINTS, color : str = COLOR, dead : bool = DEAD):
+        heads : int = NUMBER_OF_HEADS, hp : int = HIT_POINTS, color : str = COLOR):
+        super(Hero,self).__init__(dead = False)
         self._arms = arms
         self._legs = legs
         self._heads = heads
-        self._dead = dead
         self._health = hp
         self._power : str = "none"
         self._color : str = color
@@ -35,12 +35,16 @@ class Hero:
         return self._health
 
     @property
-    def Dead(self) -> bool:
-        return self._dead
+    def Power(self) -> str:
+        return self._power 
 
     @property
-    def Power(self) -> str:
-        return self._power
+    def Killed(self) -> bool:
+        if self._power == "Imortal" or "resurrection":
+            return False
+        else :
+            return True
+        
 
     @Power.setter
     def SetPower(self, power : str) -> None:
@@ -49,8 +53,9 @@ class Hero:
     @HP.setter
     def hp(self,value : int) -> None:
         if value <=0:
-            self._dead = True
-        if self._dead: 
-            self._health = 0
+            if self.Killed :
+                self.SetDead()
+            else :
+                self._health = 1000
         else:
             self._health = value
