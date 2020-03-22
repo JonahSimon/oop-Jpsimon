@@ -22,34 +22,8 @@ class HeroTest(unittest.TestCase):
         self.assertEqual(hero.HP, testHp)
         self.assertEqual(hero.Dead,False)
 
-    def testKilled(self):
-        hero = Hero()
-        hero.SetPower = "Immortal"
-        hero.hp = 0
-        self.assertEqual(hero.Killed,False)
-        self.assertEqual(hero.Dead,False)
-        self.assertEqual(hero.HP,1000)
-        hero.SetPower = "None"
-        hero.hp = 0
-        self.assertEqual(hero._power,"None")
-        self.assertEqual(hero.HP,0)
-        self.assertEqual(hero.Dead,True)
-
-
     def testDead(self):
         hero = Hero()
-        hero.SetPower = "Immortal"
-        self.assertEqual(hero.Dead,False)
-        hero.hp = 0
-        self.assertEqual(hero.Dead,False)
-        self.assertEqual(hero.HP,1000)
-
-        hero.SetPower = "Resurrection"
-        hero.hp = 50
-        self.assertEqual(hero.Dead,False)
-        self.assertEqual(hero.HP,50)
-
-        hero.SetPower = "none"
         hero.hp = 0
         self.assertEqual(hero.Dead,True)
         self.assertEqual(hero.HP,0)
@@ -62,6 +36,18 @@ class HeroTest(unittest.TestCase):
         hero.hp = 1000
         self.assertEqual(hero.Dead,False)
         self.assertEqual(hero.HP,1000)
+        
+        hero.SetPower = "Immortal"
+        hero.hp = 0
+        self.assertEqual(hero.Dead,False)
+        self.assertEqual(hero.HP,1000)
+
+        hero.SetPower = "Resurrection"
+        hero.hp = 0
+        self.assertEqual(hero.Dead,False)
+        self.assertEqual(hero.HP,1000)
+
+        
 
     def testHeroCharacterDead(self):
         character : Character = Hero()
@@ -69,4 +55,4 @@ class HeroTest(unittest.TestCase):
         hero.hp = 0
         self.assertEqual(hero.HP, 0)
         self.assertEqual(character.Dead, True)
-        self.assertEqual(Hero.Dead, True)
+        self.assertEqual(hero.Dead, True)

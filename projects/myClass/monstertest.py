@@ -38,8 +38,8 @@ class monsterTest(unittest.TestCase):
         monster : Monster = cast(Monster,character)
         monster.hp = 0
         self.assertEqual(monster.HP,0)
-        self.assertEqual(character.Killed,True)
-        self.assertEqual(monster.Killed,True)
+        self.assertEqual(character.Dead,True)
+        self.assertEqual(monster.Dead,True)
 
 
 if __name__ == '__main__':

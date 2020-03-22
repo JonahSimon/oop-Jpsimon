@@ -15,6 +15,7 @@ class Hero(Character):
         self._legs = legs
         self._heads = heads
         self._health = hp
+        self._immune : bool = False
         self._power : str = "none"
         self._color : str = color
 
@@ -36,31 +37,25 @@ class Hero(Character):
 
     @property
     def Power(self) -> str:
-        return self._power 
+        return self._power
 
-    @property
-    def Killed(self):
-        if self._power == "Immortal" or "Resurrection":
-            return False
-        else :
-            self.SetDead()
-            return True
-        
     @Power.setter
     def SetPower(self, power : str) -> None:
-        self._power = power
+        if power == "Immortal" or "Resurrection":
+            self._immune = True
+            self._power = power
+        else:
+            self._power = power
 
     @HP.setter
     def hp(self,value : int) -> None:
         if self.Dead == True:
             self._health = 0
 
-        elif value <=0:
-            if self.Killed:
-                self.SetDead()
-                self._health = 0
-            else :
-                self._health = 1000
-
+        elif self._immune:
+            self._health = 1000
+        elif value <= 0:
+            self.SetDead()
+            self._health = 0      
         else:
             self._health = value
