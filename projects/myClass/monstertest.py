@@ -1,5 +1,7 @@
+from character import Character
 import unittest
 
+from typing import cast
 from monster import Monster
 
 class monsterTest(unittest.TestCase):
@@ -11,7 +13,7 @@ class monsterTest(unittest.TestCase):
         self.assertEqual(monster._heads, Monster.NUMBER_OF_HEADS)
         self.assertEqual(monster._health, Monster.HIT_POINTS)
         self.assertEqual(monster._color, Monster.COLOR)
-        self.assertEqual(monster._dead, Monster.DEAD)
+        self.assertEqual(monster._dead, False)
 
     def testSpecific(self):
         testHeads : int = 3
@@ -30,6 +32,15 @@ class monsterTest(unittest.TestCase):
         monster.hp = 1000
         self.assertEqual(monster.HP,0)
         self.assertEqual(monster.Dead,True)
+
+    def testMonsterCharacterDead(self):
+        character : Character = Monster()
+        monster : Monster = cast(Monster,character)
+        monster.hp = 0
+        self.assertEqual(monster.HP,0)
+        self.assertEqual(character.Killed,True)
+        self.assertEqual(monster.Killed,True)
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -35,9 +35,10 @@ class Monster(Character):
 
     @HP.setter
     def hp(self,value : int) -> None:
-        if value <=0:
-            self._dead = True
-        if self._dead: 
+        if self.Dead == True:
+            self._health = 0
+        elif value <=0:
+            self.SetDead()
             self._health = 0
         else:
             self._health = value
