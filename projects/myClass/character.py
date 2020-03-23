@@ -11,7 +11,3 @@ class Character:
 
     def SetDead(self) -> None:
         self._dead = True
-
-    @property
-    def Killed(self) -> bool:
-        return self._dead
