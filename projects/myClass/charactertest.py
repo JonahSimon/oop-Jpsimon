@@ -5,7 +5,7 @@ from hero import Hero
 from monster import Monster
 from typing import cast,List
 
-class CharacterTest(unittest,TestCase):
+class CharacterTest(unittest.TestCase):
 
     def testHeroDead(self):
         hero = Hero()
@@ -28,15 +28,15 @@ class CharacterTest(unittest,TestCase):
         players.append(Monster())
         players.append(Hero())
         hero = Hero()
-        hero.hp = 0
         hero.SetPower = "Immortal"
+        hero.hp = 0
         players.append(hero)
         for player in players:
             self.assertEqual(player.Dead,False)
 
         hero : Hero = cast(Hero,players[2])
         hero.SetDead()
-        self.assertEqual(players[1].Dead,True)   
+        self.assertEqual(players[2].Dead,True)   
 
 
 
