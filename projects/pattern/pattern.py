@@ -10,8 +10,12 @@ class Publisher(object):
             subscriber.update(self, *args, **kwargs)
 
 class Subscriber(object):
+    notification = "default"
+    recived = False
     def __init__(self,publisher):
         publisher.add_subscriber(self)
 
     def update(self, publisher, *args, **kwargs):
+        self.notification = args
+        self.recived = True
         print('got', args, kwargs, 'from', publisher)
