@@ -1,16 +1,16 @@
 from player import Player
 
 class Orc(Player):
-    _role : str = "none"
+   
 
-    def __init__(self, role : str = "none"):
+    def __init__(self, tusktype : str = "none"):
         super(Orc,self).__init__(faction = "Orc")
-        self._role = role
+        self._tusktype = tusktype
 
     @property
-    def Role(self) -> str:
-        return self._role
+    def Tusktype(self) -> str:
+        return self._tusktype
 
-    @Role.setter
-    def role(self, role : str) -> None:
-        self._role = role
+    @Tusktype.setter
+    def tusktype(self,tusktype : str) -> None:
+        self._tusktype = tusktype

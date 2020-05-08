@@ -3,14 +3,14 @@ from player import Player
 class Elf(Player):
     _role : str = "none"
 
-    def __init__(self, role : str = "none"):
+    def __init__(self, elvishblessing : str = "none"):
         super(Elf,self).__init__(faction = "Elf")
-        self._role = role
+        self._elvishblessing = elvishblessing
 
     @property
-    def Role(self) -> str:
-        return self._role
+    def Elvishblessing(self) -> str:
+        return self._elvishblessing
 
-    @Role.setter
-    def role(self, role : str) -> None:
-        self._role = role
+    @Elvishblessing.setter
+    def role(self, blessing : str) -> None:
+        self._elvishblessing = blessing
