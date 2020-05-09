@@ -3,7 +3,7 @@ import unittest
 from typing import cast
 from elves import Elf
 
-class orcTest(unittest.TestCase):
+class elfTest(unittest.TestCase):
 
     def testDefaults(self):
         elf = Elf()
