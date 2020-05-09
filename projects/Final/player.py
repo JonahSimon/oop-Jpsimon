@@ -1,5 +1,5 @@
 class Player:
-    def __init__(self, faction : str = "None",  role : str = "none"):
+    def __init__(self, faction : str = "none",  role : str = "none"):
         self._faction : str = faction
         self._role : str = role
 
@@ -16,5 +16,5 @@ class Player:
         return self._role
 
     @Role.setter
-    def role(self, role : str) -> None:
+    def SetRole(self, role : str) -> None:
         self._role = role

@@ -1,7 +1,13 @@
 from player import Player
-from playerdecorator import PlayerDecorator
 
-class ImmortalDecorator(PlayerDecorator):
-    def __init__(self):
-        super(ImmortalDecorator,self)
-        self._immortal : bool = True
+class ImmortalDecorator(Player):
+    _Immortal : bool = True
+
+    def Faction(self) -> str:
+        return self._faction
+    
+    def Role(self) -> str:
+        return self._role
+
+    def Immortal(self) -> bool:
+        return self._Immortal

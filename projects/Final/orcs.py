@@ -8,9 +8,9 @@ class Orc(Player):
         self._tusktype = tusktype
 
     @property
-    def Tusktype(self) -> str:
+    def TuskType(self) -> str:
         return self._tusktype
 
-    @Tusktype.setter
-    def tusktype(self,tusktype : str) -> None:
+    @TuskType.setter
+    def SetTuskType(self,tusktype : str) -> None:
         self._tusktype = tusktype

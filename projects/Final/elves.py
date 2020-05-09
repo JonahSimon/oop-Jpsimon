@@ -8,9 +8,9 @@ class Elf(Player):
         self._elvishblessing = elvishblessing
 
     @property
-    def Elvishblessing(self) -> str:
+    def ElvishBlessing(self) -> str:
         return self._elvishblessing
 
-    @Elvishblessing.setter
-    def role(self, blessing : str) -> None:
+    @ElvishBlessing.setter
+    def SetElvishBlessing(self, blessing : str) -> None:
         self._elvishblessing = blessing
