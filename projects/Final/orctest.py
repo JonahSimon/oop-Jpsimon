@@ -7,9 +7,9 @@ class orcTest(unittest.TestCase):
 
     def testDefaults(self):
         orc = Orc()
-        self.assertEqual(orc._faction, "Orc")
-        self.assertEqual(orc._tusktype, "none")
-        self.assertEqual(orc._role, "none")
+        self.assertEqual(orc.Faction, "Orc")
+        self.assertEqual(orc.TuskType, "none")
+        self.assertEqual(orc.Role, "none")
 
 
     def testSpecific(self):

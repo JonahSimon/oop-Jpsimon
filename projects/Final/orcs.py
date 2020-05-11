@@ -2,7 +2,6 @@ from player import Player
 
 class Orc(Player):
    
-
     def __init__(self, tusktype : str = "none"):
         super(Orc,self).__init__(faction = "Orc")
         self._tusktype = tusktype
